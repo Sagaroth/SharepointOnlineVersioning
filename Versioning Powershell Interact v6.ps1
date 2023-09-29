@@ -1,26 +1,3 @@
-﻿# Texte ASCII 3D "VEJA"
-Write-Host @"
-                                                    
- ___      ___  _______          ___   ________     
-|\  \    /  /||\  ___ \        |\  \ |\   __  \                  
-\ \  \  /  / /\ \   __/|       \ \  \\ \  \|\  \   
- \ \  \/  / /  \ \  \_|/__   __ \ \  \\ \   __  \  
-  \ \    / /    \ \  \_|\ \ |\  \\_\  \\ \  \ \  \ 
-   \ \__/ /      \ \_______\\ \________\\ \__\ \__\   
-    \|__|/        \|_______| \|________| \|__|\|__|
-                                                   
-
-Script PowerShell de Gestion du Versioning SharePoint
-____________________________________________________
-
-Ce script permet de gérer le versioning des bibliothèques SharePoint Online, y compris l'activation, la désactivation, et la configuration des versions majeures. 
-Il offre également une fonctionnalité de liste des bibliothèques avec leurs statistiques, ainsi que la possibilité de supprimer sélectivement l'historique de versions des fichiers et de vider les corbeilles des sites. 
-
-Version: v6
-____________________________________________________
-                                                    
-"@
-
 # Fonction pour valider une URL SharePoint Online
 function Valider-URL-SharePoint([string]$url) {
     if ($url -match "^https:\/\/[a-zA-Z0-9.-]+\.sharepoint\.com\/$") {
@@ -316,8 +293,6 @@ function Afficher-Menu-Bibliotheque {
         } else {
             Write-Host "3: Supprimer l'historique de versions des documents (Limite de versions  : $versionsActuelles)"
         }
-        
-        # ... (ajoutez d'autres options de menu ici)
         Write-Host "0: Retour au menu précédent"
 
         # Demander à l'utilisateur de choisir une action
@@ -491,8 +466,8 @@ function Selectionner-Site-SharePoint {
 }
 
 if ($modeDebug -eq $true) {
-    $selectedSiteUrl = "https://vejafairtradesarl.sharepoint.com/sites/TESTVERSIONNING"
-    $siteName = "TESTVERSIONING"
+    $selectedSiteUrl = ""
+    $siteName = ""
     Connect-PnPOnline -Url $selectedSiteUrl -UseWebLogin
 } else {
     # Sélectionner un site SharePoint lorsque le mode débug est désactivé
